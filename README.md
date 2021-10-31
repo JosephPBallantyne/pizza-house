@@ -1,6 +1,12 @@
 ## Pizza House
 
-First, run the development server:
+To build the project:
+
+```bash
+yarn build
+```
+
+To run the development server:
 
 ```bash
 yarn dev
@@ -14,7 +20,7 @@ To run the tests:
 yarn test
 ```
 
-# Further work
+### Further work
 
 - increase test coverage
 - fix navbar basket counter
