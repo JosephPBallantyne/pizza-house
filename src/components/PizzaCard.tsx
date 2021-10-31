@@ -6,8 +6,9 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import ModalOrder from './ModalOrder';
 import Typography from '@mui/material/Typography';
+import { Pizza } from '../types/pizza';
 
-const PizzaCard: React.FC = ({ pizza }) => {
+const PizzaCard: React.FC<{ pizza: Pizza }> = ({ pizza }) => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
 

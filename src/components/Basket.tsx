@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
 import Button from '@mui/material/Button';
@@ -23,11 +23,6 @@ const Basket: React.FC = () => {
   basketItems.forEach((pizza: Pizza) => {
     totalPrice += pizza.price + pizza.extraToppings.length * extraToppingCost;
   });
-
-  // useEffect(() => {
-  //   const existingBasket = localStorage.getItem('basketItems');
-  //   console.log(existingBasket);
-  // }, []);
 
   const handleCheckout = () => {
     setCheckout(!checkout);
@@ -54,7 +49,7 @@ const Basket: React.FC = () => {
             Your basket is empty
           </Typography>
         )}
-        {basketItems.map((pizza, i) => {
+        {basketItems.map((pizza: Pizza, i: number) => {
           return (
             <Grid key={'basket' + i} container spacing={0}>
               <Grid key={i} xs={2} item>
@@ -69,7 +64,7 @@ const Basket: React.FC = () => {
                   <DeleteForeverIcon />
                 </IconButton>
               </Grid>
-              <Grid key={i} xs={8} item>
+              <Grid key={'name' + i} xs={8} item>
                 <Typography variant="body1" color="text.primary">
                   {pizza.name} {pizza.size}&quot;
                 </Typography>
@@ -83,7 +78,7 @@ const Basket: React.FC = () => {
                 ${pizza.price}
               </Grid>
 
-              <Grid key={'extra' + i} xs={2} item></Grid>
+              <Grid key={'space' + i} xs={2} item></Grid>
               <Grid key={'extra' + i} xs={8} item>
                 {pizza.extraToppings.length > 0 && (
                   <Typography variant="body2" color="text.secondary">

@@ -22,11 +22,13 @@ export const PIZZAS = [
     name: 'Margherita',
     toppings: [TOPPINGS[0], TOPPINGS[1], TOPPINGS[2]],
     price: 78,
+    extraToppings: [],
   },
   {
     name: 'Pepperoni',
     toppings: [TOPPINGS[0], TOPPINGS[1], TOPPINGS[3]],
     price: 88,
+    extraToppings: [],
   },
   {
     name: 'BBQ Chicken',
@@ -38,11 +40,13 @@ export const PIZZAS = [
       TOPPINGS[15],
     ],
     price: 98,
+    extraToppings: [],
   },
   {
     name: 'Hawaiian',
     toppings: [TOPPINGS[0], TOPPINGS[1], TOPPINGS[4], TOPPINGS[5]],
-    price: 88,
+    price: 84,
+    extraToppings: [],
   },
   {
     name: 'Meat Lovers',
@@ -54,6 +58,7 @@ export const PIZZAS = [
       TOPPINGS[10],
     ],
     price: 118,
+    extraToppings: [],
   },
   {
     name: 'Veggie Garden',
@@ -66,5 +71,6 @@ export const PIZZAS = [
       TOPPINGS[14],
     ],
     price: 108,
+    extraToppings: [],
   },
 ];

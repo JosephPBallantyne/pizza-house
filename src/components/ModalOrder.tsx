@@ -18,9 +18,6 @@ import { Pizza } from '../types/pizza';
 
 const style = {
   maxWidth: 1000,
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center',
   bgcolor: 'background.paper',
   border: '2px solid #000',
   boxShadow: 24,
@@ -30,10 +27,14 @@ const style = {
   m: 10,
 };
 
-const ModalOrder: React.FC = ({ open, setOpen, pizza }) => {
+const ModalOrder: React.FC<{
+  open: boolean;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  pizza: Pizza;
+}> = ({ open, setOpen, pizza }) => {
   const handleClose = () => setOpen(false);
   const [initial, setInitial] = useState(true);
-  const [size, setSize] = useState<12 | 14 | 16>(12);
+  const [size, setSize] = useState<number>(12);
   const [extraToppings, setExtraToppings] = useState<any[]>([]);
   const {
     basketItems,
@@ -67,7 +68,7 @@ const ModalOrder: React.FC = ({ open, setOpen, pizza }) => {
 
   useEffect(() => {
     if (initial) {
-      const existingBasket: string = localStorage.getItem('basketItems');
+      const existingBasket = localStorage.getItem('basketItems') || '[]';
       setBasketItems(JSON.parse(existingBasket));
     } else {
       localStorage.setItem('basketItems', JSON.stringify(basketItems));
@@ -126,7 +127,7 @@ const ModalOrder: React.FC = ({ open, setOpen, pizza }) => {
         <FormControl component="fieldset">
           <FormLabel component="legend">Size (Inches):</FormLabel>
           <RadioGroup row aria-label="gender" name="row-radio-buttons-group">
-            {[12, 14, 16].map((sizeOption, i): { sizeOption: 12 | 14 | 16 } => {
+            {[12, 14, 16].map((sizeOption: number, i: number) => {
               let label = String(sizeOption);
               if (sizeOption === 14) {
                 label = sizeOption + ' (+$20)';

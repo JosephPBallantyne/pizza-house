@@ -12,6 +12,7 @@ import BasketContext from '../context/basketProvider';
 
 const Navbar: NextPage = () => {
   const { basketItems } = useContext(BasketContext);
+
   return (
     <AppBar position="static" color="secondary" sx={{ pt: 0.5 }}>
       <Container maxWidth="xl" fixed>

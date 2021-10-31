@@ -1,16 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Pizza } from '../types/pizza';
 
 const BasketContext = React.createContext<any>(null);
 
-export const BasketContextProvider: React.FC = ({
+export const BasketContextProvider: React.FC<any> = ({
   children,
-}: React.PropsWithChildren<unknown>) => {
-  const [basketItems, setBasketItems] = useState<Pizza[]>([]);
+  value,
+}: React.PropsWithChildren<{
+  value: {
+    basketItems: Pizza[];
+    setBasketItems: React.Dispatch<React.SetStateAction<Pizza[]>>;
+  };
+}>) => {
   return (
-    <BasketContext.Provider value={{ basketItems, setBasketItems }}>
-      {children}
-    </BasketContext.Provider>
+    <BasketContext.Provider value={value}>{children}</BasketContext.Provider>
   );
 };
 
